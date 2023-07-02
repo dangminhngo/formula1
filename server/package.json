@@ -1,0 +1,43 @@
+{
+  "name": "@formula1/server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "prisma": {
+    "seed": "tsx lib/seed.ts"
+  },
+  "scripts": {
+    "dev": "tsx watch .",
+    "build": "tsc",
+    "lint": "eslint --fix --ext ts --report-unused-disable-directives --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate",
+    "db:seed": "prisma db seed",
+    "prebuild": "pnpm generate",
+    "predev": "pnpm generate",
+    "studio": "prisma studio"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/node": "^20.3.2",
+    "eslint": "^8.38.0",
+    "puppeteer": "^20.7.3",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@prisma/client": "4.16.1",
+    "@trpc/server": "^10.32.0",
+    "cors": "^2.8.5",
+    "prisma": "^4.16.1",
+    "slugify": "^1.6.6",
+    "zod": "^3.21.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": "eslint --fix"
+  }
+}

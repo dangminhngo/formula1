@@ -1,0 +1,31 @@
+{
+  "name": "formula1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r --parallel run build",
+    "lint": "pnpm -r --parallel run lint",
+    "typecheck": "pnpm -r --parallel run typecheck"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@ianvs/prettier-plugin-sort-imports": "^4.0.2",
+    "lint-staged": "^13.2.3",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "simple-git-hooks": "^2.8.1"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx --no -- commitlint --edit ${1}",
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    ".{ts,tsx,js,jsx}": "eslint --fix"
+  }
+}
