@@ -7,7 +7,8 @@
     "dev": "pnpm -r --parallel run dev",
     "build": "pnpm -r --parallel run build",
     "lint": "pnpm -r --parallel run lint",
-    "typecheck": "pnpm -r --parallel run typecheck"
+    "typecheck": "pnpm -r --parallel run typecheck",
+    "clean": "rimraf node_modules client/node_modules server/node_modules client/dist server/dist"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
+    "rimraf": "^5.0.1",
     "simple-git-hooks": "^2.8.1"
   },
   "simple-git-hooks": {

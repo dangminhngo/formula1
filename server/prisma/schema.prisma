@@ -12,10 +12,27 @@ datasource db {
 }
 
 model GrandPrix {
-  id        Int      @id
-  grandPrix String
-  title     String
-  image     String
-  date      DateTime
-  circuit   String
+  id       Int      @id
+  location String
+  title    String
+  image    String
+  date     DateTime
+  circuit  String
+  records  Record[]
+}
+
+model Record {
+  id          Int       @id @default(autoincrement())
+  type        String    @default("race")
+  position    String    @default("NC")
+  number      Int
+  driver      String
+  driverSlug  String
+  car         String
+  carSlug     String
+  laps        String
+  time        String    @default("DNF")
+  points      Int       @default(0)
+  grandPrix   GrandPrix @relation(fields: [grandPrixId], references: [id])
+  grandPrixId Int
 }
