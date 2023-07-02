@@ -1,6 +1,6 @@
 import type { SVGProps } from '~/types'
 
-function ChevronUpIcon(props: SVGProps) {
+function ChevronUp(props: SVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@ function ChevronUpIcon(props: SVGProps) {
   )
 }
 
-function ChevronDownIcon(props: SVGProps) {
+function ChevronDown(props: SVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ function ChevronDownIcon(props: SVGProps) {
   )
 }
 
-function CircleIcon(props: SVGProps) {
+function Circle(props: SVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ function CircleIcon(props: SVGProps) {
   )
 }
 
-function SearchIcon(props: SVGProps) {
+function Search(props: SVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -71,4 +71,4 @@ function SearchIcon(props: SVGProps) {
   )
 }
 
-export { ChevronUpIcon, ChevronDownIcon, CircleIcon, SearchIcon }
+export { ChevronUp, ChevronDown, Circle, Search }
