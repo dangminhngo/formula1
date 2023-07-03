@@ -20,7 +20,7 @@ export default function TeamOverYear() {
             Team Standings Over Year - {data.team}
           </h1>
           <StandingsLineChart
-            label={`${data.team}'s Standings`}
+            label={`${data.team}'s Standing`}
             data={data.data}
           />
         </>

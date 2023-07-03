@@ -20,7 +20,7 @@ export default function DriverOverYear() {
             Driver Standings Over Year - {data.driver}
           </h1>
           <StandingsLineChart
-            label={`${data.driver}'s Standings`}
+            label={`${data.driver}'s Standing`}
             data={data.data}
           />
         </>
