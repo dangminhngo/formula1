@@ -24,7 +24,7 @@ export default function Search() {
         />
         <Icons.Search className="text-secondary-600 absolute right-4 top-1/2 -translate-y-1/2" />
       </div>
-      {data?.length && data.length > 0 && (
+      {!!data?.length && data.length > 0 && (
         <div className="bg-secondary-800 absolute left-0 top-full mt-2 w-full rounded p-1">
           {status === 'success' && (
             <ul className="flex flex-col items-stretch">
