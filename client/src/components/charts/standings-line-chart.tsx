@@ -39,12 +39,17 @@ export default function StandingsLineChart({
         scales: {
           x: {
             grid: { display: true, color: '#0f172a' },
-            ticks: { color: '#94a3b8' },
+            ticks: {
+              color: '#94a3b8',
+            },
           },
           y: {
             grid: { display: true, color: '#0f172a' },
             reverse: true,
-            ticks: { color: '#94a3b8' },
+            ticks: {
+              color: '#94a3b8',
+              stepSize: 2,
+            },
           },
         },
       },
