@@ -1,5 +1,12 @@
 import { ReactQueryOptions, RouterInputs, trpc } from '../lib/trpc'
 
+export function useSearch(
+  input: RouterInputs['search'],
+  options?: ReactQueryOptions['search']
+) {
+  return trpc.search.useQuery(input, options)
+}
+
 export function useAllGrandsPrixByYear(
   input: RouterInputs['grandPrix']['allByYear'],
   options?: ReactQueryOptions['grandPrix']['allByYear']

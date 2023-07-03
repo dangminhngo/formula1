@@ -11,6 +11,7 @@ import {
   getGrandsPrixTopOneByYear,
   getTeamStandingsByYear,
   getTeamStandingsOverYear,
+  search,
 } from './resolvers'
 import { router } from './trpc'
 
@@ -37,6 +38,7 @@ const appRouter = router({
   grandPrix: grandPrixRouter,
   driver: driverRouter,
   team: teamRouter,
+  search,
 })
 
 export type AppRouter = typeof appRouter

@@ -31,6 +31,65 @@ const defaultRecordSelect = {
 } satisfies Prisma.RecordSelect
 
 /*
+ * SEARCH
+ * */
+export const search = publicProcedure
+  .input(z.string().min(1))
+  .query(async ({ ctx, input }) => {
+    const drivers = await ctx.prisma.record.findMany({
+      where: {
+        driver: {
+          contains: input,
+        },
+      },
+      distinct: ['driverSlug', 'driver'],
+      select: {
+        driver: true,
+        driverSlug: true,
+      },
+    })
+    const teams = await ctx.prisma.record.findMany({
+      where: {
+        car: {
+          contains: input,
+        },
+      },
+      distinct: ['car', 'carSlug'],
+      select: { car: true, carSlug: true },
+    })
+    const grandsPrix = await ctx.prisma.grandPrix.findMany({
+      where: {
+        title: {
+          contains: input,
+        },
+      },
+      select: { id: true, location: true, title: true, date: true },
+    })
+
+    const results: {
+      id: number | string
+      title: string
+      type: string
+      date?: Date
+    }[] = [
+      ...grandsPrix.map((gp) => ({
+        id: gp.id,
+        title: gp.title,
+        date: gp.date,
+        type: 'Grand Prix',
+      })),
+      ...drivers.map((d) => ({
+        id: d.driverSlug,
+        title: d.driver,
+        type: 'Driver',
+      })),
+      ...teams.map((t) => ({ id: t.carSlug, title: t.car, type: 'Team' })),
+    ]
+
+    return results.slice(0, 8)
+  })
+
+/*
  * GRANDS PRIX
  * */
 
