@@ -279,11 +279,11 @@ export const getDriverStandingsOverYear = publicProcedure
       })
 
       const standings = recs.map((r, index) => ({ ...r, standing: index + 1 }))
+      const standing = standings.find((s) => s.driverSlug === input)?.standing
 
-      data.push({
-        year,
-        standing: standings.find((s) => s.driverSlug === input)?.standing ?? 0,
-      })
+      if (standing) {
+        data.push({ year, standing })
+      }
     }
 
     return {
@@ -412,11 +412,14 @@ export const getTeamStandingsOverYear = publicProcedure
       })
 
       const standings = recs.map((r, index) => ({ ...r, standing: index + 1 }))
+      const standing = standings.find((s) => s.carSlug === input)?.standing
 
-      data.push({
-        year,
-        standing: standings.find((s) => s.carSlug === input)?.standing ?? 0,
-      })
+      if (standing) {
+        data.push({
+          year,
+          standing,
+        })
+      }
     }
 
     return {
