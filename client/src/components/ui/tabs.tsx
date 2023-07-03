@@ -21,7 +21,7 @@ const List = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <Primitive.List
     ref={ref}
-    className={cn('border-secondary-900 border-b', className)}
+    className={cn('border-secondary-900 mb-4 border-b', className)}
     {...props}
   />
 ))
@@ -46,11 +46,7 @@ const Content = React.forwardRef<
   React.ElementRef<typeof Primitive.Content>,
   React.ComponentPropsWithoutRef<typeof Primitive.Content>
 >(({ className, ...props }, ref) => (
-  <Primitive.Content
-    ref={ref}
-    className={cn('flex pt-4', className)}
-    {...props}
-  />
+  <Primitive.Content ref={ref} className={cn('flex', className)} {...props} />
 ))
 Content.displayName = 'Content'
 

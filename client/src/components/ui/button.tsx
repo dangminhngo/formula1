@@ -13,8 +13,8 @@ const buttonVariants = cva(
         secondary: 'bg-secondary-900 text-white hover:bg-secondary-800',
       },
       size: {
-        md: 'h-12 px-6',
-        lg: 'h-14 px-8',
+        md: 'h-11 px-6',
+        lg: 'h-13 px-8',
       },
     },
     defaultVariants: {

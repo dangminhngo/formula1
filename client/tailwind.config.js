@@ -37,7 +37,7 @@ module.exports = {
       screens: { '2xl': '1280px' },
     },
     fontFamily: {
-      sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      sans: ['Roboto', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       keyframes: {

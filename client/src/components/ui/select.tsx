@@ -12,7 +12,7 @@ const Trigger = React.forwardRef<
   <Primitive.Trigger
     ref={ref}
     className={cn(
-      'border-secondary-700 bg-secondary-800 inline-flex h-12 min-w-[200px] items-center justify-between gap-4 rounded border px-4 leading-none',
+      'border-secondary-700 bg-secondary-800 inline-flex h-11 min-w-[200px] items-center justify-between gap-4 rounded border px-4 leading-none',
       className
     )}
     {...props}
@@ -71,7 +71,7 @@ const Item = React.forwardRef<
   <Primitive.Item
     ref={ref}
     className={cn(
-      'data-[highlighted]:bg-secondary-600 relative flex h-12 select-none items-center rounded pl-8 pr-4 leading-none data-[disabled]:pointer-events-none data-[highlighted]:text-white data-[disabled]:opacity-50 data-[highlighted]:outline-none',
+      'data-[highlighted]:bg-secondary-600 relative flex h-11 select-none items-center rounded pl-8 pr-4 leading-none data-[disabled]:pointer-events-none data-[highlighted]:text-white data-[disabled]:opacity-50 data-[highlighted]:outline-none',
       className
     )}
     {...props}
