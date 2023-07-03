@@ -18,8 +18,8 @@ export default function StandingsLineChart({
       options: {
         elements: {
           point: {
-            radius: 6,
-            hoverRadius: 12,
+            radius: 4,
+            hoverRadius: 8,
             backgroundColor: 'hsla(2, 100%, 60%, 0.8)',
             borderWidth: 2,
             hoverBorderWidth: 2,
@@ -33,6 +33,7 @@ export default function StandingsLineChart({
             bodyFont: {
               size: 14,
             },
+            backgroundColor: '#1e293b',
           },
         },
         scales: {
