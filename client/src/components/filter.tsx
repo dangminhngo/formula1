@@ -17,7 +17,7 @@ const types = ['Races', 'Drivers', 'Teams']
 export default function Filter() {
   const params = useParams()
   const navigate = useNavigate()
-  const match = useMatch('/:year')
+  const match = useMatch('/:year/:type/*')
 
   const { isSuccess: isSuccessGrandsPrix, data: grandsPrix } =
     useAllGrandsPrixByYear(params.year ?? '2023')
@@ -35,10 +35,10 @@ export default function Filter() {
           { length: 74 },
           (_, index) => '' + (2023 - index)
         ).map((y) => ({ label: y, value: y }))}
-        onValueChange={(y) =>
+        onValueChange={(value) =>
           navigate(
             generatePath(match?.pattern.path ?? '/:year', {
-              year: y,
+              year: value === 'all' ? '' : value,
               type: match?.params.type ?? 'races',
             })
           )
@@ -56,7 +56,7 @@ export default function Filter() {
       {isSuccessGrandsPrix && match?.params.type === 'races' && (
         <CustomSelect
           placeholder="Select grand prix"
-          defaultValue="all"
+          defaultValue={match?.params['*'] || 'all'}
           options={[
             { label: 'All Grands Prix', value: 'all' },
             ...grandsPrix.map((gp) => ({
@@ -76,7 +76,7 @@ export default function Filter() {
       {isSuccessDriverStandings && match?.params.type === 'drivers' && (
         <CustomSelect
           placeholder="Select driver"
-          defaultValue="all"
+          defaultValue={match?.params['*'] || 'all'}
           options={[
             { label: 'All Drivers', value: 'all' },
             ...driverStandings.map((s) => ({
@@ -96,7 +96,7 @@ export default function Filter() {
       {isSuccessTeamStandings && match?.params.type === 'teams' && (
         <CustomSelect
           placeholder="Select team"
-          defaultValue="all"
+          defaultValue={match?.params['*'] || 'all'}
           options={[
             { label: 'All Teams', value: 'all' },
             ...teamStandings.map((t) => ({
