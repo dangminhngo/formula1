@@ -30,6 +30,8 @@ module.exports = {
         950: 'hsl(2, 100%, 14%)',
       },
       secondary: colors.slate,
+      teal: colors.teal,
+      blue: colors.blue,
     },
     container: {
       center: true,

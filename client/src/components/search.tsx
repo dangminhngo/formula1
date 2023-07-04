@@ -61,7 +61,17 @@ export default function Search() {
                     onClick={resetSearch}
                   >
                     <span>{res.title}</span>
-                    <span className="text-sm">{res.type}</span>
+                    <span
+                      className={`px-1.5 py-0.5 ${
+                        res.type === 'Driver'
+                          ? 'bg-teal-700'
+                          : res.type === 'Team'
+                          ? 'bg-blue-700'
+                          : 'bg-primary-700'
+                      } rounded text-sm text-white`}
+                    >
+                      {res.type}
+                    </span>
                   </Link>
                 </li>
               ))}
