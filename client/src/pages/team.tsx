@@ -1,5 +1,5 @@
 import { useTeamStandingsInYear } from '~/hooks'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import Loading from '~/components/loading'
 import SingleTeamStandingsTable from '~/components/tables/single-team-standings-table'
@@ -19,9 +19,17 @@ export default function Team() {
         <Loading />
       ) : (
         <>
-          <h1 className="text-4xl font-bold">
-            {params.year} Constructor Standings - {data.team}
-          </h1>
+          <div className="flex flex-col gap-6">
+            <h1 className="text-4xl font-bold">
+              {params.year} Constructor Standings - {data.team}
+            </h1>
+            <Link
+              to={`/teams/${data.slug}`}
+              className="text-primary-300 hover:text-primary-200 transition-colors duration-200 hover:underline"
+            >
+              See <strong>{data.team}</strong> standings by year
+            </Link>
+          </div>
           <SingleTeamStandingsTable data={data.records} />
         </>
       )}
