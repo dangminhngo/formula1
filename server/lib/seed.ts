@@ -60,7 +60,7 @@ const BASE_URL = 'https://formula1.com'
         data: {
           id,
           location,
-          title,
+          title: title.replace('- RACE RESULT', ''),
           image,
           date: new Date(date),
           circuit,
