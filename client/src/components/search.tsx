@@ -8,7 +8,7 @@ import { Icons, Input } from './ui'
 export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null)
   const [keyword, setKeyword] = useState('')
-  const { status, data } = useSearch(keyword)
+  const { status, data } = useSearch(keyword, { enabled: !!keyword })
 
   return (
     <form className="relative">
