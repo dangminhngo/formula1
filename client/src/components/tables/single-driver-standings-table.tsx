@@ -6,7 +6,7 @@ import { formatDate } from '~/lib/utils'
 export default function SingleDriverStandingsTable({
   data,
 }: {
-  data: RouterOutputs['driver']['byYear']['records']
+  data: RouterOutputs['driver']['inYear']['records']
 }) {
   const params = useParams()
 

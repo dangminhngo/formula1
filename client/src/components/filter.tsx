@@ -1,7 +1,7 @@
 import {
-  useAllDriverStandingsByYear,
-  useAllGrandsPrixByYear,
-  useAllTeamStandingsByYear,
+  useAllDriverStandingsInYear,
+  useAllGrandsPrixInYear,
+  useAllTeamStandingsInYear,
 } from '~/hooks'
 import {
   generatePath,
@@ -20,11 +20,11 @@ export default function Filter() {
   const match = useMatch('/:year/:type/*')
 
   const { isSuccess: isSuccessGrandsPrix, data: grandsPrix } =
-    useAllGrandsPrixByYear(params.year ?? '2023')
+    useAllGrandsPrixInYear(params.year ?? '2023')
   const { isSuccess: isSuccessDriverStandings, data: driverStandings } =
-    useAllDriverStandingsByYear(params.year ?? '2023')
+    useAllDriverStandingsInYear(params.year ?? '2023')
   const { isSuccess: isSuccessTeamStandings, data: teamStandings } =
-    useAllTeamStandingsByYear(params.year ?? '2023')
+    useAllTeamStandingsInYear(params.year ?? '2023')
 
   return (
     <div className="flex items-center gap-4">

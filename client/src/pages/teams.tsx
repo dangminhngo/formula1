@@ -1,4 +1,4 @@
-import { useAllTeamStandingsByYear } from '~/hooks'
+import { useAllTeamStandingsInYear } from '~/hooks'
 import { useParams, useSearchParams } from 'react-router-dom'
 
 import Loading from '~/components/loading'
@@ -7,7 +7,7 @@ import TeamStandingsTable from '~/components/tables/team-standings-table'
 export default function Teams() {
   const params = useParams() as { year: string }
   const [searchParams] = useSearchParams()
-  const { status, data } = useAllTeamStandingsByYear(params.year)
+  const { status, data } = useAllTeamStandingsInYear(params.year)
 
   if (status === 'error') return <div>There was an error</div>
 

@@ -6,7 +6,7 @@ import { formatDate } from '~/lib/utils'
 export default function SingleTeamStandingsTable({
   data,
 }: {
-  data: RouterOutputs['team']['byYear']['records']
+  data: RouterOutputs['team']['inYear']['records']
 }) {
   const params = useParams()
 

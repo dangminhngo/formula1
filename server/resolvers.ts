@@ -93,7 +93,7 @@ export const search = publicProcedure
  * GRANDS PRIX
  * */
 
-export const getGrandsPrixTopOneByYear = publicProcedure
+export const getGrandsPrixTopOneInAYear = publicProcedure
   .input(z.string())
   .query(async ({ ctx, input }) => {
     const grandsPrix = await ctx.prisma.grandPrix.findMany({
@@ -163,7 +163,7 @@ export const getGrandPrixById = publicProcedure
  * DRIVERS
  * */
 
-export const getAllDriverStandingsByYear = publicProcedure
+export const getAllDriverStandingsInAYear = publicProcedure
   .input(z.string())
   .query(async ({ ctx, input }) => {
     const records = await ctx.prisma.record.groupBy({
@@ -186,7 +186,7 @@ export const getAllDriverStandingsByYear = publicProcedure
     return records.map((r, index) => ({ ...r, position: index + 1 }))
   })
 
-export const getDriverStandingsByYear = publicProcedure
+export const getDriverStandingsInAYear = publicProcedure
   .input(
     z.object({
       slug: z.string(),
@@ -244,7 +244,7 @@ export const getDriverStandingsByYear = publicProcedure
     }
   })
 
-export const getDriverStandingsOverYear = publicProcedure
+export const getDriverStandingsByYear = publicProcedure
   .input(z.string())
   .query(async ({ ctx, input }) => {
     const records = await ctx.prisma.record.findMany({
@@ -298,7 +298,7 @@ export const getDriverStandingsOverYear = publicProcedure
  * TEAMS
  * */
 
-export const getAllTeamStandingsByYear = publicProcedure
+export const getAllTeamStandingsInAYear = publicProcedure
   .input(z.string())
   .query(async ({ ctx, input }) => {
     const records = await ctx.prisma.record.groupBy({
@@ -321,7 +321,7 @@ export const getAllTeamStandingsByYear = publicProcedure
     return records.map((r, index) => ({ ...r, position: index + 1 }))
   })
 
-export const getTeamStandingsByYear = publicProcedure
+export const getTeamStandingsInAYear = publicProcedure
   .input(
     z.object({
       slug: z.string(),
@@ -377,7 +377,7 @@ export const getTeamStandingsByYear = publicProcedure
     }
   })
 
-export const getTeamStandingsOverYear = publicProcedure
+export const getTeamStandingsByYear = publicProcedure
   .input(z.string())
   .query(async ({ ctx, input }) => {
     const records = await ctx.prisma.record.findMany({

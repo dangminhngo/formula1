@@ -4,7 +4,7 @@ export default function DriverStandingsTable({
   data,
   highlight,
 }: {
-  data: RouterOutputs['team']['allByYear']
+  data: RouterOutputs['team']['allInYear']
   highlight: string | null
 }) {
   return (

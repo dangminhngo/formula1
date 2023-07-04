@@ -3,14 +3,14 @@ import cors from 'cors'
 
 import { createContext } from './context'
 import {
-  getAllDriverStandingsByYear,
-  getAllTeamStandingsByYear,
+  getAllDriverStandingsInAYear,
+  getAllTeamStandingsInAYear,
   getDriverStandingsByYear,
-  getDriverStandingsOverYear,
+  getDriverStandingsInAYear,
   getGrandPrixById,
-  getGrandsPrixTopOneByYear,
+  getGrandsPrixTopOneInAYear,
   getTeamStandingsByYear,
-  getTeamStandingsOverYear,
+  getTeamStandingsInAYear,
   search,
 } from './resolvers'
 import { router } from './trpc'
@@ -18,20 +18,20 @@ import { router } from './trpc'
 export type * from './index'
 
 const grandPrixRouter = router({
-  allByYear: getGrandsPrixTopOneByYear,
+  allInYear: getGrandsPrixTopOneInAYear,
   byId: getGrandPrixById,
 })
 
 const driverRouter = router({
-  allByYear: getAllDriverStandingsByYear,
+  allInYear: getAllDriverStandingsInAYear,
+  inYear: getDriverStandingsInAYear,
   byYear: getDriverStandingsByYear,
-  overYear: getDriverStandingsOverYear,
 })
 
 const teamRouter = router({
-  allByYear: getAllTeamStandingsByYear,
+  allInYear: getAllTeamStandingsInAYear,
+  inYear: getTeamStandingsInAYear,
   byYear: getTeamStandingsByYear,
-  overYear: getTeamStandingsOverYear,
 })
 
 const appRouter = router({

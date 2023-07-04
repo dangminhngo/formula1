@@ -7,11 +7,11 @@ export function useSearch(
   return trpc.search.useQuery(input, options)
 }
 
-export function useAllGrandsPrixByYear(
-  input: RouterInputs['grandPrix']['allByYear'],
-  options?: ReactQueryOptions['grandPrix']['allByYear']
+export function useAllGrandsPrixInYear(
+  input: RouterInputs['grandPrix']['allInYear'],
+  options?: ReactQueryOptions['grandPrix']['allInYear']
 ) {
-  return trpc.grandPrix.allByYear.useQuery(input, options)
+  return trpc.grandPrix.allInYear.useQuery(input, options)
 }
 
 export function useGrandPrixById(
@@ -21,11 +21,18 @@ export function useGrandPrixById(
   return trpc.grandPrix.byId.useQuery(input, options)
 }
 
-export function useAllDriverStandingsByYear(
-  input: RouterInputs['driver']['allByYear'],
-  options?: ReactQueryOptions['driver']['allByYear']
+export function useAllDriverStandingsInYear(
+  input: RouterInputs['driver']['allInYear'],
+  options?: ReactQueryOptions['driver']['allInYear']
 ) {
-  return trpc.driver.allByYear.useQuery(input, options)
+  return trpc.driver.allInYear.useQuery(input, options)
+}
+
+export function useDriverStandingsInYear(
+  input: RouterInputs['driver']['inYear'],
+  options?: ReactQueryOptions['driver']['inYear']
+) {
+  return trpc.driver.inYear.useQuery(input, options)
 }
 
 export function useDriverStandingsByYear(
@@ -35,18 +42,18 @@ export function useDriverStandingsByYear(
   return trpc.driver.byYear.useQuery(input, options)
 }
 
-export function useDriverStandingsOverYear(
-  input: RouterInputs['driver']['overYear'],
-  options?: ReactQueryOptions['driver']['overYear']
+export function useAllTeamStandingsInYear(
+  input: RouterInputs['team']['allInYear'],
+  options?: ReactQueryOptions['team']['allInYear']
 ) {
-  return trpc.driver.overYear.useQuery(input, options)
+  return trpc.team.allInYear.useQuery(input, options)
 }
 
-export function useAllTeamStandingsByYear(
-  input: RouterInputs['team']['allByYear'],
-  options?: ReactQueryOptions['team']['allByYear']
+export function useTeamStandingsInYear(
+  input: RouterInputs['team']['inYear'],
+  options?: ReactQueryOptions['team']['inYear']
 ) {
-  return trpc.team.allByYear.useQuery(input, options)
+  return trpc.team.inYear.useQuery(input, options)
 }
 
 export function useTeamStandingsByYear(
@@ -54,11 +61,4 @@ export function useTeamStandingsByYear(
   options?: ReactQueryOptions['team']['byYear']
 ) {
   return trpc.team.byYear.useQuery(input, options)
-}
-
-export function useTeamStandingsOverYear(
-  input: RouterInputs['team']['overYear'],
-  options?: ReactQueryOptions['team']['overYear']
-) {
-  return trpc.team.overYear.useQuery(input, options)
 }

@@ -1,4 +1,4 @@
-import { useDriverStandingsByYear } from '~/hooks'
+import { useDriverStandingsInYear } from '~/hooks'
 import { useParams } from 'react-router-dom'
 
 import Loading from '~/components/loading'
@@ -6,7 +6,7 @@ import SingleDriverStandingsTable from '~/components/tables/single-driver-standi
 
 export default function Driver() {
   const params = useParams() as { year: string; slug: string }
-  const { status, data } = useDriverStandingsByYear({
+  const { status, data } = useDriverStandingsInYear({
     slug: params.slug,
     year: params.year,
   })

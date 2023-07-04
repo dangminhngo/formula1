@@ -7,12 +7,12 @@ import {
 
 import MainLayout from './layouts/main-layout'
 import Driver from './pages/driver'
-import DriverOverYear from './pages/driver-over-year'
+import DriverStandingsByYear from './pages/driver-standings-by-year'
 import Drivers from './pages/drivers'
 import Race from './pages/race'
 import Races from './pages/races'
 import Team from './pages/team'
-import TeamOverYear from './pages/team-over-year'
+import TeamStandingsByYear from './pages/team-standings-by-year'
 import Teams from './pages/teams'
 
 export default function App() {
@@ -29,8 +29,8 @@ export default function App() {
             <Route path="teams" Component={Teams} />
             <Route path="teams/:slug" Component={Team} />
           </Route>
-          <Route path="drivers/:slug" Component={DriverOverYear} />
-          <Route path="teams/:slug" Component={TeamOverYear} />
+          <Route path="drivers/:slug" Component={DriverStandingsByYear} />
+          <Route path="teams/:slug" Component={TeamStandingsByYear} />
         </Route>
       </Routes>
     </Router>

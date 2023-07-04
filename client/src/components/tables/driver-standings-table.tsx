@@ -6,7 +6,7 @@ export default function DriverStandingsTable({
   data,
   highlight,
 }: {
-  data: RouterOutputs['driver']['allByYear']
+  data: RouterOutputs['driver']['allInYear']
   highlight: string | null
 }) {
   const params = useParams()

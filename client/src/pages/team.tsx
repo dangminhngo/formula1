@@ -1,4 +1,4 @@
-import { useTeamStandingsByYear } from '~/hooks'
+import { useTeamStandingsInYear } from '~/hooks'
 import { useParams } from 'react-router-dom'
 
 import Loading from '~/components/loading'
@@ -6,7 +6,7 @@ import SingleTeamStandingsTable from '~/components/tables/single-team-standings-
 
 export default function Team() {
   const params = useParams() as { year: string; slug: string }
-  const { status, data } = useTeamStandingsByYear({
+  const { status, data } = useTeamStandingsInYear({
     slug: params.slug,
     year: params.year,
   })

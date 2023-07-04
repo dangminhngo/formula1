@@ -1,12 +1,12 @@
-import { useDriverStandingsOverYear } from '~/hooks'
+import { useDriverStandingsByYear } from '~/hooks'
 import { useParams } from 'react-router-dom'
 
 import StandingsLineChart from '~/components/charts/standings-line-chart'
 import Loading from '~/components/loading'
 
-export default function DriverOverYear() {
+export default function DriverStandingsByYear() {
   const params = useParams() as { slug: string }
-  const { status, data } = useDriverStandingsOverYear(params.slug)
+  const { status, data } = useDriverStandingsByYear(params.slug)
 
   if (status === 'error') return <div>There was an error</div>
 
@@ -17,7 +17,7 @@ export default function DriverOverYear() {
       ) : (
         <>
           <h1 className="text-4xl font-bold">
-            Driver Standings Over Year - {data.driver}
+            Driver Standings By Year - {data.driver}
           </h1>
           <StandingsLineChart
             label={`${data.driver}'s Standing`}

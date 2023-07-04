@@ -6,7 +6,7 @@ import { formatDate } from '~/lib/utils'
 export default function RaceResultsTable({
   data,
 }: {
-  data: RouterOutputs['grandPrix']['allByYear']
+  data: RouterOutputs['grandPrix']['allInYear']
 }) {
   const params = useParams()
 
