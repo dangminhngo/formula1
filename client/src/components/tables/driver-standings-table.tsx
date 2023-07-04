@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 
-import { RouterOutputs } from '~/lib/trpc'
+import type { RouterOutputs } from '~/lib/trpc'
 
 export default function DriverStandingsTable({
   data,

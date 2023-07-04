@@ -1,4 +1,4 @@
-import { RouterOutputs } from '~/lib/trpc'
+import type { RouterOutputs } from '~/lib/trpc'
 
 export default function GrandPrixTable({
   data,
