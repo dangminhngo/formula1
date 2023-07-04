@@ -86,7 +86,7 @@ export const search = publicProcedure
       ...teams.map((t) => ({ id: t.carSlug, title: t.car, type: 'Team' })),
     ]
 
-    return results.slice(0, 8)
+    return results.slice(0, 10)
   })
 
 /*
