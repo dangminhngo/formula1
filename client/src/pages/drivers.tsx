@@ -1,11 +1,12 @@
 import { useAllDriverStandingsByYear } from '~/hooks'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 import Loading from '~/components/loading'
 import DriverStandingsTable from '~/components/tables/driver-standings-table'
 
 export default function Drivers() {
   const params = useParams() as { year: string }
+  const [searchParams] = useSearchParams()
   const { status, data } = useAllDriverStandingsByYear(params.year)
 
   if (status === 'error') return <div>There was an error</div>
@@ -16,7 +17,10 @@ export default function Drivers() {
       {status === 'loading' ? (
         <Loading />
       ) : (
-        <DriverStandingsTable data={data} />
+        <DriverStandingsTable
+          data={data}
+          highlight={searchParams.get('highlight')}
+        />
       )}
     </div>
   )

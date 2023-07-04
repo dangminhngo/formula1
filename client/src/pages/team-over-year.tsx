@@ -21,6 +21,7 @@ export default function TeamOverYear() {
           </h1>
           <StandingsLineChart
             label={`${data.team}'s Standing`}
+            childPath="teams"
             data={data.data}
           />
         </>

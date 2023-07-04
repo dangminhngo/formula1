@@ -1,14 +1,18 @@
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
+import { useNavigate } from 'react-router-dom'
 
 export default function StandingsLineChart({
   label = 'Standing',
+  childPath,
   data,
 }: {
   label?: string
+  childPath: string
   data: { year: number; standing: number }[]
 }) {
   const ref = useRef<HTMLCanvasElement>(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!ref.current) return
@@ -16,6 +20,22 @@ export default function StandingsLineChart({
     const chart = new Chart(ref.current, {
       type: 'line',
       options: {
+        // @link https://www.youtube.com/watch?v=8FcRkIKlI-8
+        onClick: (e) => {
+          if (!e.native) return
+          const points = chart.getElementsAtEventForMode(
+            e.native,
+            'nearest',
+            { intersect: true },
+            true
+          )
+
+          if (!points[0]) return
+
+          const d = data[points[0].index]
+
+          navigate(`/${d.year}/${childPath}?highlight=${d.standing}`)
+        },
         elements: {
           point: {
             radius: 4,

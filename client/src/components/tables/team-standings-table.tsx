@@ -2,8 +2,10 @@ import { RouterOutputs } from '~/lib/trpc'
 
 export default function DriverStandingsTable({
   data,
+  highlight,
 }: {
   data: RouterOutputs['team']['allByYear']
+  highlight: string | null
 }) {
   return (
     <table className="flex-1">
@@ -16,7 +18,14 @@ export default function DriverStandingsTable({
       </thead>
       <tbody>
         {data.map((d) => (
-          <tr key={d.carSlug} className="odd:bg-secondary-900">
+          <tr
+            key={d.carSlug}
+            className={`${
+              highlight && +highlight === d.position
+                ? 'bg-primary-600 text-white '
+                : 'odd:bg-secondary-900'
+            }`}
+          >
             <td className="p-4">{d.position}</td>
             <td className="p-4 font-medium">{d.car}</td>
             <td className="p-4">{d._sum.points}</td>

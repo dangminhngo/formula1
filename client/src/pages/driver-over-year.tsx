@@ -21,6 +21,7 @@ export default function DriverOverYear() {
           </h1>
           <StandingsLineChart
             label={`${data.driver}'s Standing`}
+            childPath="drivers"
             data={data.data}
           />
         </>
