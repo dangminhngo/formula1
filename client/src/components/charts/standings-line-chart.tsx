@@ -88,7 +88,7 @@ export default function StandingsLineChart({
     })
 
     return () => chart.destroy()
-  }, [data, label])
+  }, [data, label, childPath, navigate])
 
   return <canvas ref={ref} />
 }
