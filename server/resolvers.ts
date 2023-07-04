@@ -175,7 +175,7 @@ export const getAllDriverStandingsByYear = publicProcedure
           },
         },
       },
-      by: ['driver', 'car', 'driverSlug'],
+      by: ['driver', 'car', 'driverSlug', 'carSlug'],
       _sum: { points: true },
       orderBy: {
         _sum: {
@@ -235,6 +235,7 @@ export const getDriverStandingsByYear = publicProcedure
       slug: records[0].driverSlug,
       records: records.map((rec) => ({
         car: rec.car,
+        carSlug: rec.carSlug,
         grandPrix: rec.grandPrix,
         position: rec.position,
         points: points.find((p) => p.grandPrixId === rec.grandPrix.id)?._sum
