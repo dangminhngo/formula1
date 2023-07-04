@@ -22,9 +22,9 @@ export default function DriverStandingsTable({
             key={d.carSlug}
             className={`${
               highlight && +highlight === d.position
-                ? 'bg-primary-600 text-white '
-                : 'odd:bg-secondary-900'
-            }`}
+                ? 'border-primary-400 border-2 '
+                : ''
+            }odd:bg-secondary-900`}
           >
             <td className="p-4">{d.position}</td>
             <td className="p-4 font-medium">{d.car}</td>
