@@ -57,12 +57,12 @@ export default function Search() {
                         ? `/drivers/${res.id}`
                         : `/teams/${res.id}`
                     }
-                    className="hover:bg-secondary-700 flex w-full items-center justify-between rounded px-4 py-2"
+                    className="hover:bg-secondary-700 flex w-full items-center justify-between gap-2 rounded px-4 py-2"
                     onClick={resetSearch}
                   >
-                    <span>{res.title}</span>
+                    <span className="text-clip">{res.title}</span>
                     <span
-                      className={`px-1.5 py-0.5 ${
+                      className={`min-w-[64px] px-1.5 py-0.5 text-center ${
                         res.type === 'Driver'
                           ? 'bg-teal-700'
                           : res.type === 'Team'
@@ -70,7 +70,7 @@ export default function Search() {
                           : 'bg-primary-700'
                       } rounded text-sm text-white`}
                     >
-                      {res.type}
+                      {res.type === 'Grand Prix' ? 'GP' : res.type}
                     </span>
                   </Link>
                 </li>
