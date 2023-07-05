@@ -13,7 +13,7 @@ export default function DriverStandingsTable({
         <tr className="text-secondary-500 text-left text-xs uppercase">
           <th className="p-4">Pos</th>
           <th className="p-4">Team</th>
-          <th className="p-4">Points</th>
+          <th className="p-4">Pts</th>
         </tr>
       </thead>
       <tbody>

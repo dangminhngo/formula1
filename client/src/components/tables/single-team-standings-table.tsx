@@ -16,7 +16,7 @@ export default function SingleTeamStandingsTable({
         <tr className="text-secondary-500 text-left text-xs uppercase">
           <th className="p-4">Grand Prix</th>
           <th className="p-4">Date</th>
-          <th className="p-4">Points</th>
+          <th className="p-4">Pts</th>
         </tr>
       </thead>
       <tbody>

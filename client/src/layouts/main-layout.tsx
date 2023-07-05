@@ -10,7 +10,7 @@ export default function MainLayout() {
       <Header />
       <main>
         <div className="container">
-          <div className="border-secondary-900 bg-secondary-950 sticky top-0 flex items-center justify-between border-b py-6 shadow-lg">
+          <div className="border-secondary-900 bg-secondary-950 sticky top-0 flex w-full items-center justify-between border-b py-6 shadow-lg">
             <Filter />
             <Search />
           </div>

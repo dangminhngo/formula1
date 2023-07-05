@@ -18,7 +18,7 @@ export default function DriverStandingsTable({
           <th className="p-4">Pos</th>
           <th className="p-4">Driver</th>
           <th className="p-4">Car</th>
-          <th className="p-4">Points</th>
+          <th className="p-4">Pts</th>
         </tr>
       </thead>
       <tbody>

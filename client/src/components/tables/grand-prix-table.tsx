@@ -15,7 +15,7 @@ export default function GrandPrixTable({
           <th className="p-4">Car</th>
           <th className="p-4">Laps</th>
           <th className="p-4">Time</th>
-          <th className="p-4">Points</th>
+          <th className="p-4">Pts</th>
         </tr>
       </thead>
       <tbody>
