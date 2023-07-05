@@ -1,8 +1,10 @@
 import { useTeamStandingsInYear } from '~/hooks'
 import { Link, useParams } from 'react-router-dom'
 
+import PointsBarChart from '~/components/charts/points-bar-char'
 import Loading from '~/components/loading'
 import SingleTeamStandingsTable from '~/components/tables/single-team-standings-table'
+import { Tabs } from '~/components/ui'
 
 export default function Team() {
   const params = useParams() as { year: string; slug: string }
@@ -30,7 +32,18 @@ export default function Team() {
               See <strong>{data.team}</strong> standings by year
             </Link>
           </div>
-          <SingleTeamStandingsTable data={data.records} />
+          <Tabs.Root defaultValue="table">
+            <Tabs.List>
+              <Tabs.Trigger value="table">Table</Tabs.Trigger>
+              <Tabs.Trigger value="chart">Chart</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="table">
+              <SingleTeamStandingsTable data={data.records} />
+            </Tabs.Content>
+            <Tabs.Content value="chart">
+              <PointsBarChart label={data.team} data={data.records} />
+            </Tabs.Content>
+          </Tabs.Root>
         </>
       )}
     </div>

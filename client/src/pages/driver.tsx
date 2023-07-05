@@ -1,8 +1,10 @@
 import { useDriverStandingsInYear } from '~/hooks'
 import { Link, useParams } from 'react-router-dom'
 
+import PointsBarChart from '~/components/charts/points-bar-char'
 import Loading from '~/components/loading'
 import SingleDriverStandingsTable from '~/components/tables/single-driver-standings-table'
+import { Tabs } from '~/components/ui'
 
 export default function Driver() {
   const params = useParams() as { year: string; slug: string }
@@ -30,7 +32,18 @@ export default function Driver() {
               See <strong>{data.driver}</strong> standings by year
             </Link>
           </div>
-          <SingleDriverStandingsTable data={data.records} />
+          <Tabs.Root defaultValue="table">
+            <Tabs.List>
+              <Tabs.Trigger value="table">Table</Tabs.Trigger>
+              <Tabs.Trigger value="chart">Chart</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="table">
+              <SingleDriverStandingsTable data={data.records} />
+            </Tabs.Content>
+            <Tabs.Content value="chart">
+              <PointsBarChart label={data.driver} data={data.records} />
+            </Tabs.Content>
+          </Tabs.Root>
         </>
       )}
     </div>
