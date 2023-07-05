@@ -46,6 +46,12 @@ export default function StandingsLineChart({
           },
         },
         plugins: {
+          legend: {
+            labels: {
+              color: '#94a3b8',
+              font: { weight: '600' },
+            },
+          },
           tooltip: {
             titleFont: {
               size: 16,
