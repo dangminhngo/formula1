@@ -1,14 +1,10 @@
+import { useState } from 'react'
 import {
   useAllDriverStandingsInYear,
   useAllGrandsPrixInYear,
   useAllTeamStandingsInYear,
 } from '~/hooks'
-import {
-  generatePath,
-  useMatch,
-  useNavigate,
-  useParams,
-} from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 
 import CustomSelect from './custom-select'
 
@@ -17,7 +13,12 @@ const types = ['Races', 'Drivers', 'Teams']
 export default function Filter() {
   const params = useParams()
   const navigate = useNavigate()
-  const match = useMatch('/:year/:type/*')
+  const { pathname } = useLocation()
+  const chunks = pathname.split('/')
+  const [type, setType] = useState(() =>
+    !isNaN(+chunks[1]) ? chunks[2] : undefined
+  )
+  console.log(type)
 
   const { isSuccess: isSuccessGrandsPrix, data: grandsPrix } =
     useAllGrandsPrixInYear(params.year ?? '2023')
@@ -35,28 +36,24 @@ export default function Filter() {
           { length: 74 },
           (_, index) => '' + (2023 - index)
         ).map((y) => ({ label: y, value: y }))}
-        onValueChange={(value) =>
-          navigate(
-            generatePath(match?.pattern.path ?? '/:year', {
-              year: value === 'all' ? '' : value,
-              type: match?.params.type ?? 'races',
-            })
-          )
-        }
+        onValueChange={(value) => navigate(`/${value}/${type}`)}
       />
       <CustomSelect
         placeholder="Select type"
-        defaultValue={match?.params.type}
+        defaultValue={type}
         options={types.map((t) => ({
           label: t,
           value: t.toLowerCase(),
         }))}
-        onValueChange={(t) => navigate(`/${params.year}/${t}`)}
+        onValueChange={(value) => {
+          setType(value)
+          navigate(`/${params.year}/${value}`)
+        }}
       />
-      {isSuccessGrandsPrix && match?.params.type === 'races' && (
+      {isSuccessGrandsPrix && type === 'races' && (
         <CustomSelect
           placeholder="Select grand prix"
-          defaultValue={match?.params['*'] || 'all'}
+          defaultValue={params.id ?? 'all'}
           options={[
             { label: 'All Grands Prix', value: 'all' },
             ...grandsPrix.map((gp) => ({
@@ -67,16 +64,16 @@ export default function Filter() {
           onValueChange={(value) =>
             navigate(
               value === 'all'
-                ? `/${match?.params.year ?? '2023'}/races`
-                : `/${match?.params.year ?? '2023'}/races/${value}`
+                ? `/${params.year ?? '2023'}/races`
+                : `/${params.year ?? '2023'}/races/${value}`
             )
           }
         />
       )}
-      {isSuccessDriverStandings && match?.params.type === 'drivers' && (
+      {isSuccessDriverStandings && type === 'drivers' && (
         <CustomSelect
           placeholder="Select driver"
-          defaultValue={match?.params['*'] || 'all'}
+          defaultValue={params.slug ?? 'all'}
           options={[
             { label: 'All Drivers', value: 'all' },
             ...driverStandings.map((s) => ({
@@ -87,16 +84,16 @@ export default function Filter() {
           onValueChange={(value) =>
             navigate(
               value === 'all'
-                ? `/${match?.params.year ?? '2023'}/drivers`
-                : `/${match?.params.year ?? '2023'}/drivers/${value}`
+                ? `/${params.year ?? '2023'}/drivers`
+                : `/${params.year ?? '2023'}/drivers/${value}`
             )
           }
         />
       )}
-      {isSuccessTeamStandings && match?.params.type === 'teams' && (
+      {isSuccessTeamStandings && type === 'teams' && (
         <CustomSelect
           placeholder="Select team"
-          defaultValue={match?.params['*'] || 'all'}
+          defaultValue={params.slug ?? 'all'}
           options={[
             { label: 'All Teams', value: 'all' },
             ...teamStandings.map((t) => ({
@@ -107,8 +104,8 @@ export default function Filter() {
           onValueChange={(value) =>
             navigate(
               value === 'all'
-                ? `/${match?.params.year ?? '2023'}/teams`
-                : `/${match?.params.year ?? '2023'}/teams/${value}`
+                ? `/${params.year ?? '2023'}/teams`
+                : `/${params.year ?? '2023'}/teams/${value}`
             )
           }
         />
