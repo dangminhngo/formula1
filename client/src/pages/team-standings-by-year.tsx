@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import StandingsLineChart from '~/components/charts/standings-line-chart'
 import Loading from '~/components/loading'
+import StandingsByYearTable from '~/components/tables/standings-by-year-table'
+import { Tabs } from '~/components/ui'
 
 export default function TeamStandingsByYear() {
   const params = useParams() as { slug: string }
@@ -17,13 +19,24 @@ export default function TeamStandingsByYear() {
       ) : (
         <>
           <h1 className="text-4xl font-bold">
-            Team Standings By Year - {data.team}
+            Constructor Standings By Year - {data.team}
           </h1>
-          <StandingsLineChart
-            label={`${data.team}'s Standing`}
-            childPath="teams"
-            data={data.data}
-          />
+          <Tabs.Root defaultValue="table">
+            <Tabs.List>
+              <Tabs.Trigger value="table">Table</Tabs.Trigger>
+              <Tabs.Trigger value="chart">Chart</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="table">
+              <StandingsByYearTable data={data.data} />
+            </Tabs.Content>
+            <Tabs.Content value="chart">
+              <StandingsLineChart
+                label={`${data.team}'s Standing`}
+                childPath="drivers"
+                data={data.data}
+              />
+            </Tabs.Content>
+          </Tabs.Root>
         </>
       )}
     </div>

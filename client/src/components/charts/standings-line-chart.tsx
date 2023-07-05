@@ -9,7 +9,7 @@ export default function StandingsLineChart({
 }: {
   label?: string
   childPath: string
-  data: { year: number; standing: number }[]
+  data: { year: number; standing: number; points: number }[]
 }) {
   const ref = useRef<HTMLCanvasElement>(null)
   const navigate = useNavigate()
@@ -54,6 +54,13 @@ export default function StandingsLineChart({
               size: 14,
             },
             backgroundColor: '#1e293b',
+            callbacks: {
+              label: (context) => {
+                return `Standing: ${context.raw} - Points: ${
+                  data[context.dataIndex].points
+                }`
+              },
+            },
           },
         },
         scales: {

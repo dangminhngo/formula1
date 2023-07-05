@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import StandingsLineChart from '~/components/charts/standings-line-chart'
 import Loading from '~/components/loading'
+import StandingsByYearTable from '~/components/tables/standings-by-year-table'
+import { Tabs } from '~/components/ui'
 
 export default function DriverStandingsByYear() {
   const params = useParams() as { slug: string }
@@ -19,11 +21,22 @@ export default function DriverStandingsByYear() {
           <h1 className="text-4xl font-bold">
             Driver Standings By Year - {data.driver}
           </h1>
-          <StandingsLineChart
-            label={`${data.driver}'s Standing`}
-            childPath="drivers"
-            data={data.data}
-          />
+          <Tabs.Root defaultValue="table">
+            <Tabs.List>
+              <Tabs.Trigger value="table">Table</Tabs.Trigger>
+              <Tabs.Trigger value="chart">Chart</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="table">
+              <StandingsByYearTable data={data.data} />
+            </Tabs.Content>
+            <Tabs.Content value="chart">
+              <StandingsLineChart
+                label={`${data.driver}'s Standing`}
+                childPath="drivers"
+                data={data.data}
+              />
+            </Tabs.Content>
+          </Tabs.Root>
         </>
       )}
     </div>

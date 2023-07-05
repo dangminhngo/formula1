@@ -258,7 +258,7 @@ export const getDriverStandingsByYear = publicProcedure
     const startYear = records[records.length - 1].grandPrix.date.getFullYear()
     const endYear = records[0].grandPrix.date.getFullYear()
 
-    const data: { year: number; standing: number }[] = []
+    const data: { year: number; standing: number; points: number }[] = []
 
     for (let year = startYear; year <= endYear; ++year) {
       const recs = await ctx.prisma.record.groupBy({
@@ -280,10 +280,14 @@ export const getDriverStandingsByYear = publicProcedure
       })
 
       const standings = recs.map((r, index) => ({ ...r, standing: index + 1 }))
-      const standing = standings.find((s) => s.driverSlug === input)?.standing
+      const rec = standings.find((s) => s.driverSlug === input)
 
-      if (standing) {
-        data.push({ year, standing })
+      if (rec) {
+        data.push({
+          year,
+          standing: rec.standing,
+          points: rec._sum.points ?? 0,
+        })
       }
     }
 
@@ -391,7 +395,7 @@ export const getTeamStandingsByYear = publicProcedure
     const startYear = records[records.length - 1].grandPrix.date.getFullYear()
     const endYear = records[0].grandPrix.date.getFullYear()
 
-    const data: { year: number; standing: number }[] = []
+    const data: { year: number; standing: number; points: number }[] = []
 
     for (let year = startYear; year <= endYear; ++year) {
       const recs = await ctx.prisma.record.groupBy({
@@ -413,12 +417,13 @@ export const getTeamStandingsByYear = publicProcedure
       })
 
       const standings = recs.map((r, index) => ({ ...r, standing: index + 1 }))
-      const standing = standings.find((s) => s.carSlug === input)?.standing
+      const rec = standings.find((s) => s.carSlug === input)
 
-      if (standing) {
+      if (rec) {
         data.push({
           year,
-          standing,
+          standing: rec.standing,
+          points: rec._sum.points ?? 0,
         })
       }
     }
