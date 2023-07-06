@@ -26,7 +26,7 @@ export default function SingleDriverStandingsTable({
           <tr key={index} className="odd:bg-secondary-900">
             <td className="p-4 font-medium">
               <Link
-                to={`/${params.year}/races/${d.grandPrix.id}`}
+                to={`/races/${params.year}/${d.grandPrix.id}`}
                 className="hover:underline"
               >
                 {d.grandPrix.location}
@@ -35,7 +35,7 @@ export default function SingleDriverStandingsTable({
             <td className="p-4">{formatDate(d.grandPrix.date)}</td>
             <td className="p-4">
               <Link
-                to={`/${params.year}/teams/${d.carSlug}`}
+                to={`/teams/${params.year}/${d.carSlug}`}
                 className="hover:underline"
               >
                 {d.car}

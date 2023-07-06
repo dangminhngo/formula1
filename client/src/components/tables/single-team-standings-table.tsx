@@ -24,7 +24,7 @@ export default function SingleTeamStandingsTable({
           <tr key={index} className="odd:bg-secondary-900">
             <td className="p-4 font-medium">
               <Link
-                to={`/${params.year}/races/${d.grandPrix.id}`}
+                to={`/races/${params.year}/${d.grandPrix.id}`}
                 className="hover:underline"
               >
                 {d.grandPrix.location}

@@ -20,17 +20,21 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" Component={MainLayout}>
-          <Route index element={<Navigate to="/2023/races" />} />
-          <Route path=":year">
-            <Route path="races" Component={Races} />
-            <Route path="races/:id" Component={Race} />
-            <Route path="drivers" Component={Drivers} />
-            <Route path="drivers/:slug" Component={Driver} />
-            <Route path="teams" Component={Teams} />
-            <Route path="teams/:slug" Component={Team} />
+          <Route index element={<Navigate to="/races/2023" />} />
+          <Route path="races">
+            <Route path=":year" Component={Races} />
+            <Route path=":year/:id" Component={Race} />
           </Route>
-          <Route path="drivers/:slug" Component={DriverStandingsByYear} />
-          <Route path="teams/:slug" Component={TeamStandingsByYear} />
+          <Route path="drivers">
+            <Route path=":year" Component={Drivers} />
+            <Route path=":year/:slug" Component={Driver} />
+            <Route path="alltime/:slug" Component={DriverStandingsByYear} />
+          </Route>
+          <Route path="teams">
+            <Route path=":year" Component={Teams} />
+            <Route path=":year/:slug" Component={Team} />
+            <Route path="alltime/:slug" Component={TeamStandingsByYear} />
+          </Route>
         </Route>
       </Routes>
     </Router>

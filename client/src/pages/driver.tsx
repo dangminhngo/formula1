@@ -26,7 +26,7 @@ export default function Driver() {
               {params.year} Driver Standings - {data.driver}
             </h1>
             <Link
-              to={`/drivers/${data.slug}`}
+              to={`/drivers/alltime/${data.slug}`}
               className="text-primary-300 hover:text-primary-200 transition-colors duration-200 hover:underline"
             >
               See <strong>{data.driver}</strong> standings by year

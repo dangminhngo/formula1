@@ -34,7 +34,7 @@ export default function StandingsLineChart({
 
           const d = data[points[0].index]
 
-          navigate(`/${d.year}/${childPath}?highlight=${d.standing}`)
+          navigate(`/${childPath}/${d.year}?highlight=${d.standing}`)
         },
         elements: {
           point: {

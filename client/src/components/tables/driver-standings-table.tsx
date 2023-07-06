@@ -34,7 +34,7 @@ export default function DriverStandingsTable({
             <td className="p-4 font-medium">{d.position}</td>
             <td className="p-4 font-medium">
               <Link
-                to={`/${params.year}/drivers/${d.driverSlug}`}
+                to={`/drivers/${params.year}/${d.driverSlug}`}
                 className="hover:underline"
               >
                 {d.driver}
@@ -42,7 +42,7 @@ export default function DriverStandingsTable({
             </td>
             <td className="p-4 font-medium">
               <Link
-                to={`/${params.year}/teams/${d.carSlug}`}
+                to={`/teams/${params.year}/${d.carSlug}`}
                 className="hover:underline"
               >
                 {d.car}

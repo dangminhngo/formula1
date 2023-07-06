@@ -50,12 +50,12 @@ export default function Search() {
                   <Link
                     to={
                       res.type === 'Grand Prix'
-                        ? `/${new Date(
+                        ? `/races/${new Date(
                             res?.date ?? 2023
-                          ).getFullYear()}/races/${res.id}`
+                          ).getFullYear()}/${res.id}`
                         : res.type === 'Driver'
-                        ? `/drivers/${res.id}`
-                        : `/teams/${res.id}`
+                        ? `/drivers/alltime/${res.id}`
+                        : `/teams/alltime/${res.id}`
                     }
                     className="hover:bg-secondary-700 flex w-full items-center justify-between gap-2 rounded px-4 py-2"
                     onClick={resetSearch}

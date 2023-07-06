@@ -26,7 +26,7 @@ export default function Team() {
               {params.year} Constructor Standings - {data.team}
             </h1>
             <Link
-              to={`/teams/${data.slug}`}
+              to={`/teams/alltime/${data.slug}`}
               className="text-primary-300 hover:text-primary-200 transition-colors duration-200 hover:underline"
             >
               See <strong>{data.team}</strong> standings by year

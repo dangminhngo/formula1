@@ -26,7 +26,7 @@ export default function RaceResultsTable({
         {data.map((gp) => (
           <tr key={gp.id} className="odd:bg-secondary-900">
             <td className="p-4 font-semibold hover:underline">
-              <Link to={`/${params.year}/races/${gp.id}`}>{gp.location}</Link>
+              <Link to={`/races/${params.year}/${gp.id}`}>{gp.location}</Link>
             </td>
             <td className="hidden p-4 sm:inline-block">
               {formatDate(gp.date)}

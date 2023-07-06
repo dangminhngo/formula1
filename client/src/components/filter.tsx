@@ -1,59 +1,67 @@
-import { useState } from 'react'
 import {
   useAllDriverStandingsInYear,
   useAllGrandsPrixInYear,
   useAllTeamStandingsInYear,
 } from '~/hooks'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { generatePath, useMatch, useNavigate } from 'react-router-dom'
 
 import CustomSelect from './custom-select'
 
 const types = ['Races', 'Drivers', 'Teams']
 
 export default function Filter() {
-  const params = useParams()
   const navigate = useNavigate()
-  const { pathname } = useLocation()
-  const chunks = pathname.split('/')
-  const [type, setType] = useState(() =>
-    !isNaN(+chunks[1]) ? chunks[2] : undefined
-  )
-  console.log(type)
+  const match = useMatch('/:type/:year/*')
 
   const { isSuccess: isSuccessGrandsPrix, data: grandsPrix } =
-    useAllGrandsPrixInYear(params.year ?? '2023')
+    useAllGrandsPrixInYear(match?.params.year ?? '2023')
   const { isSuccess: isSuccessDriverStandings, data: driverStandings } =
-    useAllDriverStandingsInYear(params.year ?? '2023')
+    useAllDriverStandingsInYear(match?.params.year ?? '2023')
   const { isSuccess: isSuccessTeamStandings, data: teamStandings } =
-    useAllTeamStandingsInYear(params.year ?? '2023')
+    useAllTeamStandingsInYear(match?.params.year ?? '2023')
 
   return (
     <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 lg:flex lg:items-center">
       <CustomSelect
         placeholder="Select year"
-        defaultValue={params.year}
+        defaultValue={match?.params.year}
         options={Array.from(
           { length: 74 },
           (_, index) => '' + (2023 - index)
         ).map((y) => ({ label: y, value: y }))}
-        onValueChange={(value) => navigate(`/${value}/${type}`)}
+        onValueChange={(value) =>
+          navigate(
+            generatePath('/:type/:year/*', {
+              type: match?.params.type ?? 'races',
+              year: value ?? match?.params.year,
+              '*':
+                (match?.params.type === 'races' ? '' : match?.params['*']) ??
+                '',
+            })
+          )
+        }
       />
       <CustomSelect
         placeholder="Select type"
-        defaultValue={type}
+        defaultValue={match?.params.type}
         options={types.map((t) => ({
           label: t,
           value: t.toLowerCase(),
         }))}
         onValueChange={(value) => {
-          setType(value)
-          navigate(`/${params.year}/${value}`)
+          navigate(
+            generatePath('/:type/:year/*', {
+              type: value ?? match?.params.type,
+              year: match?.params.year ?? '2023',
+              '*': '',
+            })
+          )
         }}
       />
-      {isSuccessGrandsPrix && type === 'races' && (
+      {isSuccessGrandsPrix && match?.params.type === 'races' && (
         <CustomSelect
           placeholder="Select grand prix"
-          defaultValue={params.id ?? 'all'}
+          defaultValue={match?.params['*'] === '' ? 'all' : match?.params['*']}
           options={[
             { label: 'All Grands Prix', value: 'all' },
             ...grandsPrix.map((gp) => ({
@@ -63,17 +71,19 @@ export default function Filter() {
           ]}
           onValueChange={(value) =>
             navigate(
-              value === 'all'
-                ? `/${params.year ?? '2023'}/races`
-                : `/${params.year ?? '2023'}/races/${value}`
+              generatePath('/:type/:year/*', {
+                type: 'races',
+                year: match?.params.year ?? '2023',
+                '*': value === 'all' ? '' : value,
+              })
             )
           }
         />
       )}
-      {isSuccessDriverStandings && type === 'drivers' && (
+      {isSuccessDriverStandings && match?.params.type === 'drivers' && (
         <CustomSelect
           placeholder="Select driver"
-          defaultValue={params.slug ?? 'all'}
+          defaultValue={match?.params['*'] === '' ? 'all' : match?.params['*']}
           options={[
             { label: 'All Drivers', value: 'all' },
             ...driverStandings.map((s) => ({
@@ -83,17 +93,19 @@ export default function Filter() {
           ]}
           onValueChange={(value) =>
             navigate(
-              value === 'all'
-                ? `/${params.year ?? '2023'}/drivers`
-                : `/${params.year ?? '2023'}/drivers/${value}`
+              generatePath('/:type/:year/*', {
+                type: 'drivers',
+                year: match?.params.year ?? '2023',
+                '*': value === 'all' ? '' : value,
+              })
             )
           }
         />
       )}
-      {isSuccessTeamStandings && type === 'teams' && (
+      {isSuccessTeamStandings && match?.params.type === 'teams' && (
         <CustomSelect
           placeholder="Select team"
-          defaultValue={params.slug ?? 'all'}
+          defaultValue={match?.params['*'] === '' ? 'all' : match?.params['*']}
           options={[
             { label: 'All Teams', value: 'all' },
             ...teamStandings.map((t) => ({
@@ -103,9 +115,11 @@ export default function Filter() {
           ]}
           onValueChange={(value) =>
             navigate(
-              value === 'all'
-                ? `/${params.year ?? '2023'}/teams`
-                : `/${params.year ?? '2023'}/teams/${value}`
+              generatePath('/:type/:year/*', {
+                type: 'teams',
+                year: match?.params.year ?? '2023',
+                '*': value === 'all' ? '' : value,
+              })
             )
           }
         />
