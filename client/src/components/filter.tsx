@@ -61,7 +61,7 @@ export default function Filter() {
       {isSuccessGrandsPrix && match?.params.type === 'races' && (
         <CustomSelect
           placeholder="Select grand prix"
-          defaultValue={match?.params['*'] === '' ? 'all' : match?.params['*']}
+          value={match?.params['*'] === '' ? 'all' : match?.params['*']}
           options={[
             { label: 'All Grands Prix', value: 'all' },
             ...grandsPrix.map((gp) => ({
@@ -83,7 +83,7 @@ export default function Filter() {
       {isSuccessDriverStandings && match?.params.type === 'drivers' && (
         <CustomSelect
           placeholder="Select driver"
-          defaultValue={match?.params['*'] === '' ? 'all' : match?.params['*']}
+          value={match?.params['*'] === '' ? 'all' : match?.params['*']}
           options={[
             { label: 'All Drivers', value: 'all' },
             ...driverStandings.map((s) => ({
@@ -105,7 +105,7 @@ export default function Filter() {
       {isSuccessTeamStandings && match?.params.type === 'teams' && (
         <CustomSelect
           placeholder="Select team"
-          defaultValue={match?.params['*'] === '' ? 'all' : match?.params['*']}
+          value={match?.params['*'] === '' ? 'all' : match?.params['*']}
           options={[
             { label: 'All Teams', value: 'all' },
             ...teamStandings.map((t) => ({
