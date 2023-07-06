@@ -13,8 +13,8 @@ export default function GrandPrixTable({
           <th className="p-4">No</th>
           <th className="p-4">Driver</th>
           <th className="p-4">Car</th>
-          <th className="p-4">Laps</th>
-          <th className="p-4">Time</th>
+          <th className="hidden p-4 md:inline-block">Laps</th>
+          <th className="hidden p-4 lg:inline-block">Time</th>
           <th className="p-4">Pts</th>
         </tr>
       </thead>
@@ -25,8 +25,8 @@ export default function GrandPrixTable({
             <td className="p-4">{r.number}</td>
             <td className="p-4 font-medium">{r.driver}</td>
             <td className="p-4 font-medium">{r.car}</td>
-            <td className="p-4">{r.laps}</td>
-            <td className="p-4">{r.time}</td>
+            <td className="hidden p-4 md:inline-block">{r.laps}</td>
+            <td className="hidden p-4 lg:inline-block">{r.time}</td>
             <td className="p-4">{r.points}</td>
           </tr>
         ))}
