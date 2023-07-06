@@ -4,7 +4,7 @@ export default function StandingsByYearTable({
   data: { year: number; standing: number; points: number }[]
 }) {
   return (
-    <table className="flex-1">
+    <table className="flex-1 text-sm sm:text-base">
       <thead>
         <tr className="text-secondary-500 text-left text-xs uppercase">
           <th className="p-4">Year</th>

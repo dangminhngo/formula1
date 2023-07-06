@@ -11,7 +11,9 @@ export default function Races() {
 
   return (
     <div className="flex flex-col gap-8 py-8">
-      <h1 className="text-4xl font-bold">{params.year} Race Results</h1>
+      <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl">
+        {params.year} Race Results
+      </h1>
       {status === 'loading' ? <Loading /> : <RaceResultsTable data={data} />}
     </div>
   )

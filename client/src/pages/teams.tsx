@@ -13,7 +13,7 @@ export default function Teams() {
 
   return (
     <div className="flex flex-col gap-8 py-8">
-      <h1 className="text-4xl font-bold">
+      <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl">
         {params.year} Constructor Standings
       </h1>
       {status === 'loading' ? (

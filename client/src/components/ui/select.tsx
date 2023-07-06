@@ -12,7 +12,7 @@ const Trigger = React.forwardRef<
   <Primitive.Trigger
     ref={ref}
     className={cn(
-      'border-secondary-700 bg-secondary-800 inline-flex h-11 min-w-[200px] items-center justify-between gap-4 rounded border px-4 leading-none',
+      'border-secondary-700 bg-secondary-800 inline-flex h-11 min-w-[160px] items-center justify-between gap-4 rounded border px-4 leading-none',
       className
     )}
     {...props}
@@ -58,7 +58,7 @@ const Viewport = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <Primitive.Viewport
     ref={ref}
-    className={cn('min-w-[200px] p-1 shadow-lg', className)}
+    className={cn('min-w-[160px] p-1 shadow-2xl', className)}
     {...props}
   />
 ))

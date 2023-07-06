@@ -19,11 +19,11 @@ export default function Search() {
 
   return (
     <form className="relative">
-      <div className="relative">
+      <div className="relative min-w-full sm:min-w-[360px]">
         <Input
           ref={inputRef}
           type="text"
-          className="min-w-[400px]"
+          className="w-full"
           placeholder="Search"
           onChange={debounce((e: React.ChangeEvent<HTMLInputElement>) => {
             setKeyword(e.target.value)
@@ -42,7 +42,7 @@ export default function Search() {
         )}
       </div>
       {!!data?.length && data.length > 0 && (
-        <div className="bg-secondary-800 absolute left-0 top-full mt-2 w-full rounded p-1">
+        <div className="border-secondary-700 bg-secondary-800 absolute left-0 top-full mt-2 w-full rounded border p-1 shadow-2xl">
           {status === 'success' && (
             <ul className="flex flex-col items-stretch">
               {data?.map((res) => (
