@@ -28,7 +28,7 @@ export default function Filter() {
     useAllTeamStandingsInYear(params.year ?? '2023')
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-2">
       <CustomSelect
         placeholder="Select year"
         defaultValue={params.year}
