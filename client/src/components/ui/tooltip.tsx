@@ -17,7 +17,11 @@ const Content = React.forwardRef<
   React.ElementRef<typeof Primitive.Content>,
   React.ComponentPropsWithoutRef<typeof Primitive.Content>
 >(({ className, ...props }, ref) => (
-  <Primitive.Content ref={ref} className={cn('', className)} {...props} />
+  <Primitive.Content
+    ref={ref}
+    className={cn('bg-secondary-800 rounded px-2 py-1 text-sm', className)}
+    {...props}
+  />
 ))
 Content.displayName = 'Content'
 
@@ -25,7 +29,11 @@ const Arrow = React.forwardRef<
   React.ElementRef<typeof Primitive.Arrow>,
   React.ComponentPropsWithoutRef<typeof Primitive.Arrow>
 >(({ className, ...props }, ref) => (
-  <Primitive.Arrow ref={ref} className={cn('', className)} {...props} />
+  <Primitive.Arrow
+    ref={ref}
+    className={cn('fill-secondary-800', className)}
+    {...props}
+  />
 ))
 Arrow.displayName = 'Arrow'
 
