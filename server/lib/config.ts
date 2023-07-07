@@ -8,7 +8,7 @@ dotenv.config({
 })
 
 const config = {
-  CLIENT_URL: process.env.CLIENT_URL!,
+  CLIENT_ORIGIN: process.env.CLIENT_ORIGIN!,
 }
 
 export default config
