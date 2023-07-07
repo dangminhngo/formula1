@@ -17,8 +17,6 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate",
     "db:seed": "prisma db seed",
-    "prebuild": "pnpm generate",
-    "predev": "pnpm generate",
     "studio": "prisma studio"
   },
   "devDependencies": {
