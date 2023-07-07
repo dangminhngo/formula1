@@ -1,3 +1,5 @@
+import { Link, useParams } from 'react-router-dom'
+
 import type { RouterOutputs } from '~/lib/trpc'
 
 export default function DriverStandingsTable({
@@ -7,6 +9,8 @@ export default function DriverStandingsTable({
   data: RouterOutputs['team']['allInYear']
   highlight: string | null
 }) {
+  const params = useParams()
+
   return (
     <table className="flex-1 text-sm sm:text-base">
       <thead>
@@ -27,7 +31,14 @@ export default function DriverStandingsTable({
             }odd:bg-secondary-900`}
           >
             <td className="p-4">{d.position}</td>
-            <td className="p-4 font-medium">{d.car}</td>
+            <td className="p-4 font-medium">
+              <Link
+                to={`/teams/${params.year}/${d.carSlug}`}
+                className="hover:underline"
+              >
+                {d.car}
+              </Link>
+            </td>
             <td className="p-4">{d._sum.points}</td>
           </tr>
         ))}

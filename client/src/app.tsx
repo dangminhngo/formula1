@@ -28,12 +28,12 @@ export default function App() {
           <Route path="drivers">
             <Route path=":year" Component={Drivers} />
             <Route path=":year/:slug" Component={Driver} />
-            <Route path="alltime/:slug" Component={DriverStandingsByYear} />
+            <Route path="all/:slug" Component={DriverStandingsByYear} />
           </Route>
           <Route path="teams">
             <Route path=":year" Component={Teams} />
             <Route path=":year/:slug" Component={Team} />
-            <Route path="alltime/:slug" Component={TeamStandingsByYear} />
+            <Route path="all/:slug" Component={TeamStandingsByYear} />
           </Route>
         </Route>
       </Routes>

@@ -54,8 +54,8 @@ export default function Search() {
                             res?.date ?? 2023
                           ).getFullYear()}/${res.id}`
                         : res.type === 'Driver'
-                        ? `/drivers/alltime/${res.id}`
-                        : `/teams/alltime/${res.id}`
+                        ? `/drivers/all/${res.id}`
+                        : `/teams/all/${res.id}`
                     }
                     className="hover:bg-secondary-700 flex w-full items-center justify-between gap-2 rounded px-4 py-2"
                     onClick={resetSearch}
