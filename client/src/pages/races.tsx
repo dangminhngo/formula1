@@ -14,7 +14,9 @@ export default function Races() {
       <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl">
         {params.year} Race Results
       </h1>
-      {status === 'loading' ? <Loading /> : <RaceResultsTable data={data} />}
+      <Loading isLoading={status === 'loading'}>
+        {status === 'success' && <RaceResultsTable data={data} />}
+      </Loading>
     </div>
   )
 }

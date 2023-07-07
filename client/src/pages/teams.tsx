@@ -16,14 +16,14 @@ export default function Teams() {
       <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl">
         {params.year} Constructor Standings
       </h1>
-      {status === 'loading' ? (
-        <Loading />
-      ) : (
-        <TeamStandingsTable
-          data={data}
-          highlight={searchParams.get('highlight')}
-        />
-      )}
+      <Loading isLoading={status === 'loading'}>
+        {status === 'success' && (
+          <TeamStandingsTable
+            data={data}
+            highlight={searchParams.get('highlight')}
+          />
+        )}
+      </Loading>
     </div>
   )
 }

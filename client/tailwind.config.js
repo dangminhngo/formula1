@@ -145,6 +145,7 @@ module.exports = {
         hide: 'hide 100ms ease-in',
         slideIn: 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         swipeOut: 'swipeOut 100ms ease-out',
+        spinSlow: 'spin 1.5s linear infinite',
       },
     },
   },
