@@ -3,7 +3,7 @@
 ### Table of Contents
 
 - [Overview](#overview)
-- [Technologies/Libraries](#technologies-libraries)
+- [Technologies/Libraries](#technologieslibraries)
 - [Implementation](#implementation)
 
 ## Overview
