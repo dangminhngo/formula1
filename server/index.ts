@@ -46,7 +46,7 @@ export type AppRouter = typeof appRouter
 
 const server = createHTTPServer({
   middleware: cors({
-    origin: [config.CLIENT_URL ?? '', 'http://localhost:3000'],
+    origin: ['http://localhost:3000'],
     credentials: true,
   }),
   router: appRouter,
