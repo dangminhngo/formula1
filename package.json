@@ -9,9 +9,7 @@
     "lint": "pnpm -r --parallel run lint",
     "typecheck": "pnpm -r --parallel run typecheck",
     "format": "prettier --write \"./{client,server}/**/*.{ts,tsx}\"",
-    "clean": "rimraf node_modules client/node_modules server/node_modules client/dist server/dist",
-    "prebuild": "pnpm --filter server db:generate",
-    "predev": "pnpm --filter server db:generate"
+    "clean": "rimraf node_modules client/node_modules server/node_modules client/dist server/dist"
   },
   "keywords": [],
   "author": "",

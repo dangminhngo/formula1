@@ -8,8 +8,8 @@
     "seed": "tsx lib/seed.ts"
   },
   "scripts": {
-    "dev": "tsx watch .",
-    "build": "tsc",
+    "dev": "pnpm run db:generate && tsx watch .",
+    "build": "pnpm run db:generate && tsc",
     "lint": "eslint --fix --ext ts --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "db:migrate:deploy": "prisma migrate deploy",
