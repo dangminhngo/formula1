@@ -6,7 +6,8 @@ export default function Footer() {
     <footer className="bg-secondary-900 py-2">
       <div className="container flex items-center justify-between">
         <p>
-          Developed by{' '}
+          <span className="hidden sm:inline">Developed by </span>
+          <span className="inline sm:hidden">By </span>
           <a className="font-bold" href="https://dangminhngo.github.io">
             Dang Minh Ngo
           </a>
