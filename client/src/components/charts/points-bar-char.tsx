@@ -47,8 +47,9 @@ export default function PointsBarChart({
             backgroundColor: '#1e293b',
             callbacks: {
               label: (context) => {
-                return `Position: ${
-                  data[context.dataIndex].position
+                const d = data[context.dataIndex]
+                return `Date: ${formatDate(d.grandPrix.date)} - Position: ${
+                  d.position
                 } - Points: ${context.raw}`
               },
             },
@@ -72,9 +73,7 @@ export default function PointsBarChart({
         },
       },
       data: {
-        labels: data.map(
-          (d) => `${d.grandPrix.location} (${formatDate(d.grandPrix.date)})`
-        ),
+        labels: data.map((d) => d.grandPrix.location),
         datasets: [
           {
             label,
