@@ -8,8 +8,8 @@
     "seed": "tsx lib/seed.ts"
   },
   "scripts": {
-    "dev": "pnpm run db:generate && tsx watch .",
-    "build": "pnpm run db:generate && tsc",
+    "dev": "pnpm run db:generate && cross-env NODE_ENV=development tsx watch .",
+    "build": "pnpm run db:generate && cross-env NODE_ENV=production tsc",
     "lint": "eslint --fix --ext ts --report-unused-disable-directives --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "db:migrate:deploy": "prisma migrate deploy",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/node": "^20.3.2",
+    "cross-env": "^7.0.3",
     "eslint": "^8.38.0",
     "puppeteer": "^20.7.3",
     "tsx": "^3.12.7",
