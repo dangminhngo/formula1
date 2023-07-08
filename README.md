@@ -149,8 +149,8 @@ This app has very simple UI. But it will be more easier to use if we have the fo
 
 - Author: Dang Minh Ngo
 - Email: dangminhngo.dev@gmail.com
-- Twitter: twitter.com/dangminhngo
-- Github: github.com/dangminhngo
-- Portfolio: dangminhngo.github.io
+- Twitter: [twitter.com/dangminhngo](https://twitter.com/dangminhngo)
+- Github: [github.com/dangminhngo](https://github.com/dangminhngo)
+- Portfolio: [dangminhngo.github.io](https://dangminhngo.github.io)
 
 or [Dowload my resume](https://drive.google.com/file/d/1hoJ60VJZkSfF02vKdIY8FqJ_dx1ugREa/view?usp=drive_link)
