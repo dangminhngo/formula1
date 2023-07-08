@@ -42,7 +42,7 @@ export default function Search() {
         )}
       </div>
       {!!data?.length && data.length > 0 && (
-        <div className="border-secondary-700 bg-secondary-800 absolute left-0 top-full mt-2 w-full rounded border p-1 shadow-2xl">
+        <div className="bg-secondary-700 absolute left-0 top-full mt-2 w-full rounded shadow-2xl">
           {status === 'success' && (
             <ul className="flex flex-col items-stretch">
               {data?.map((res) => (
@@ -57,7 +57,7 @@ export default function Search() {
                         ? `/drivers/all/${res.id}`
                         : `/teams/all/${res.id}`
                     }
-                    className="hover:bg-secondary-700 flex w-full items-center justify-between gap-2 rounded px-4 py-2"
+                    className="hover:bg-secondary-600 flex w-full items-center justify-between gap-2 rounded px-4 py-2"
                     onClick={resetSearch}
                   >
                     <span className="text-clip">{res.title}</span>
