@@ -159,6 +159,8 @@ This app has very simple UI. But it will be more easier to use if we have the fo
 
 ## Contact
 
+If you detect bugs, or any issues, please contact me.
+
 - Author: Dang Minh Ngo
 - Email: dangminhngo.dev@gmail.com
 - Twitter: [twitter.com/dangminhngo](https://twitter.com/dangminhngo)
