@@ -24,7 +24,7 @@ export default function Filter() {
     <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 lg:flex lg:items-center">
       <CustomSelect
         placeholder="Select year"
-        defaultValue={match?.params.year}
+        value={match?.params.year}
         options={Array.from(
           { length: 74 },
           (_, index) => '' + (2023 - index)
@@ -43,7 +43,7 @@ export default function Filter() {
       />
       <CustomSelect
         placeholder="Select type"
-        defaultValue={match?.params.type}
+        value={match?.params.type}
         options={types.map((t) => ({
           label: t,
           value: t.toLowerCase(),
