@@ -10,8 +10,6 @@ COPY pnpm-lock.yaml pnpm-lock.yaml
 COPY pnpm-workspace.yaml pnpm-workspace.yaml
 COPY server server
 RUN pnpm i
-RUN pnpm --filter server run db:generate
-RUN pnpm --filter server run db:push
 RUN pnpm --filter server run build
 
 FROM base AS runner
