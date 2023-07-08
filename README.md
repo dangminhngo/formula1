@@ -36,7 +36,7 @@
 
 This app has been developed by [Dang Minh Ngo](https://dangminhngo.github.io). It follows the requirements from [Vrillar Vietnam's assignment](https://github.com/dangminhngo/formula1/assets/ASSIGNMENT.md).
 
-- Crawling data from [formula1.com](https://formula1.com/en) race results.
+- Crawling data from [formula1.com](https://formula1.com/en) race results (latest update 02 July 2023)
 - Allowing users to filter and search the informations about Formula One races, drivers and teams with data tables and graphics.
 - The app is living at: [http://8.222.192.185:3000](http://8.222.192.185:3000)
 
