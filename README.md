@@ -133,7 +133,7 @@ This app has very simple UI. But it will be more easier to use if we have the fo
   <img src="https://github.com/dangminhngo/formula1/blob/main/docs/media/filter.png" />
 </div>
 
-- Beside that, users can directly specific the results by accessing with the routes. For example, to see all the races in 2023, type `<DOMAIN>/2023/races`.
+- Beside that, users can directly specific the results by accessing with the routes. For example, to see all the races in 2023, type `<DOMAIN>/races/2023`.
 
 - Users can search with the search form. The maximum number of search results is 10. Clicking an item on the search results popup will navigate to a grand prix results, or a driver/team standings by year.
 
