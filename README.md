@@ -34,7 +34,7 @@
 
 ## Overview
 
-This app has been developed by [Dang Minh Ngo](https://dangminhngo.github.io). It follows the requirements from [Vrillar Vietnam's assignment](https://github.com/dangminhngo/formula1/assets/ASSIGNMENT.md).
+This app has been developed by [Dang Minh Ngo](https://dangminhngo.github.io). It follows the requirements from [Vrillar Vietnam's assignment](https://github.com/dangminhngo/formula1/docs/ASSIGNMENT.md).
 
 - Crawling data from [formula1.com](https://formula1.com/en) race results (latest update 02 July 2023)
 - Allowing users to filter and search the informations about Formula One races, drivers and teams with data tables and graphics.
