@@ -1,4 +1,28 @@
-# FRONTEND CANDIDATE ASSIGNMENT - VRILLAR VIETNAM | BY DANG MINH NGO
+<h1 align="center">FRONTEND INTERVIEW ASSIGNMENT - VRILLAR VIETNAM | BY DANG MINH NGO</h1>
+
+<div align="center">
+    <a href="https://github.com/dangminhngo/formula1/releases/latest">
+      <img alt="Latest release" src="https://img.shields.io/github/v/release/dangminhngo/formula1?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver" />
+    </a>
+    <a href="https://github.com/dangminhngo/formula1/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/dangminhngo/formula1?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+    </a>
+    <a href="https://github.com/dangminhngo/formula1/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/dangminhngo/formula1?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
+    </a>
+    <a href="https://github.com/dangminhngo/formula1/stargazers">
+      <img alt="Stars" src="https://img.shields.io/github/stars/dangminhngo/formula1?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41" />
+    </a>
+    <a href="https://github.com/dangminhngo/formula1/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/dangminhngo/formula1?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
+    </a>
+    <a href="https://github.com/dangminhngo/formula1">
+      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/dangminhngo/formula1?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41" />
+    </a>
+    <a href="https://twitter.com/intent/follow?screen_name=dangminhngo">
+      <img alt="Follow on Twitter" src="https://img.shields.io/twitter/follow/dangminhngo?style=for-the-badge&logo=twitter&color=8aadf3&logoColor=D9E0EE&labelColor=302D41" />
+    </a>
+</div>
 
 ### Table of Contents
 
@@ -92,7 +116,7 @@ This app has very simple UI. But it will be more easier to use if we have the fo
 - It allows users to filter race results, drivers or teams with the selects
 
 <div align="center">
-  <img src="https://github.com/dangminhngo/proxima.nvim/blob/main/docs/media/filter.png" />
+  <img src="https://github.com/dangminhngo/formula1/blob/main/docs/media/filter.png" />
 </div>
 
 - Beside that, users can directly specific the results by accessing with the routes. For example, to see all the races in 2023, type `<DOMAIN>/2023/races`.
@@ -100,21 +124,21 @@ This app has very simple UI. But it will be more easier to use if we have the fo
 - Users can search with the search form. The maximum number of search results is 10. Clicking an item on the search results popup will navigate to a grand prix results, or a driver/team standings by year.
 
 <div align="center">
-  <img src="https://github.com/dangminhngo/proxima.nvim/blob/main/docs/media/search.png" />
+  <img src="https://github.com/dangminhngo/formula1/blob/main/docs/media/search.png" />
 </div>
 
 - Switching between the tabs to see other information or data that described in charts.
 
 <div align="center">
-  <img src="https://github.com/dangminhngo/proxima.nvim/blob/main/docs/media/tabs.png" />
+  <img src="https://github.com/dangminhngo/formula1/blob/main/docs/media/tabs.png" />
 </div>
 
 - The charts allow users to interact by hovering or clicking.
 
 <div align="center">
-  <img src="https://github.com/dangminhngo/proxima.nvim/blob/main/docs/media/line-charts.png" />
+  <img src="https://github.com/dangminhngo/formula1/blob/main/docs/media/line-charts.png" />
 </div>
 
 <div align="center">
-  <img src="https://github.com/dangminhngo/proxima.nvim/blob/main/docs/media/bar-charts.png" />
+  <img src="https://github.com/dangminhngo/formula1/blob/main/docs/media/bar-charts.png" />
 </div>
