@@ -63,7 +63,7 @@ Before you take the following steps, you need to install these stuff to run the 
 
 ### Run local development server
 
-- Step 1: Clone this repository:
+- Step 1: Clone this repository
 
 ```bash
 git clone https://github.com/dangminhngo/formula1.git
@@ -76,17 +76,23 @@ cd formula1
 pnpm i
 ```
 
-- Step 3: Set environment variables
+- Step 3: Set environment variables with `.env.development.local` files at `<root>/server` and `<root>/client`
 
-```bash
-echo 'DATABASE_URL=file:./database.db\nCLIENT_ORIGIN=http://localhost:3000' > ./server/.env.development.local
-echo 'VITE_API_SERVER_URL=http://localhost:8000' > ./client/.env.development.local
+```
+# <root>/server/.env.development.local
+DATABASE_URL="file:./database.db"
+CLIENT_ORIGIN="http://localhost:3000"
+```
+
+```
+# <root>/client/.env.development.local
+VITE_API_SERVER_URL="http://localhost:8000"
 ```
 
 - Step 4: Start the local development server, the app will be running at `http://localhost:3000`
 
 ```bash
-pnpm run start
+pnpm run dev
 ```
 
 ### Run production server with Docker on local machine
@@ -98,11 +104,17 @@ git clone https://github.com/dangminhngo/formula1.git
 cd formula1
 ```
 
-- Step 2: Set environment variables in .env files
+- Step 2: Set environment variables with `.env` files at `<root>/server` and `<root>/client`
 
-```bash
-echo 'DATABASE_URL=file:./database.db\nCLIENT_ORIGIN=http://localhost:3000' > ./server/.env
-echo 'VITE_API_SERVER_URL=http://localhost:8000' > ./client/.env
+```
+# <root>/server/.env
+DATABASE_URL="file:./database.db"
+CLIENT_ORIGIN="http://localhost:3000"
+```
+
+```
+# <root>/client/.env
+VITE_API_SERVER_URL="http://localhost:8000"
 ```
 
 - Step 2: Build and run docker containers with Docker Compose. After the build process, the app will be running at `http://localhost:3000`
