@@ -4,12 +4,20 @@ interface LoadingProps extends React.PropsWithChildren {
   isLoading?: boolean
 }
 export default function Loading({ isLoading = true, children }: LoadingProps) {
-  const [loadingState, setLoadingState] = useState(true)
+  const [loadingState, setLoadingState] = useState(false)
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => setLoadingState(isLoading), 600)
+    if (isLoading) {
+      setLoadingState(true)
+    }
+
+    let timeoutId: ReturnType<typeof setTimeout>
+    if (!isLoading && loadingState) {
+      timeoutId = setTimeout(() => setLoadingState(isLoading), 400)
+    }
+
     return () => clearTimeout(timeoutId)
-  })
+  }, [isLoading, loadingState])
 
   return loadingState ? (
     <div className="grid place-items-center py-8">
