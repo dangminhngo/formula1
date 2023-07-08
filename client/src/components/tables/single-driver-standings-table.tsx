@@ -11,7 +11,7 @@ export default function SingleDriverStandingsTable({
   const params = useParams()
 
   return (
-    <div className="overflow-x-auto">
+    <div className="flex flex-1 overflow-x-auto">
       <table className="flex-1 text-sm sm:text-base">
         <thead>
           <tr className="text-secondary-500 text-left text-xs uppercase">
