@@ -59,7 +59,7 @@ Before you take the following steps, you need to install these stuff to run the 
 - [Node.js\*](https://nodejs.org/en) v18
 - [pnpm\*](https://pnpm.io) v8.6.6
 - [Docker](https://www.docker.com/) v24.0.2
-- [Docker Compose](https://docs.docker.com/compose/) v3.8
+- [Docker Compose](https://docs.docker.com/compose/) v2.19.1
 
 ### Run local development server
 
