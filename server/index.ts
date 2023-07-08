@@ -46,12 +46,11 @@ export type AppRouter = typeof appRouter
 
 const server = createHTTPServer({
   middleware: cors({
-    origin: ['http://localhost:3000'],
+    origin: [config.CLIENT_ORIGIN],
     credentials: true,
   }),
   router: appRouter,
   createContext,
 })
 
-console.log(config.CLIENT_URL)
 server.listen(8000)
