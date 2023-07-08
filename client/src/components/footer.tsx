@@ -8,7 +8,12 @@ export default function Footer() {
         <p>
           <span className="hidden sm:inline">Developed by </span>
           <span className="inline sm:hidden">By </span>
-          <a className="font-bold" href="https://dangminhngo.github.io">
+          <a
+            className="font-bold"
+            href="https://dangminhngo.github.io"
+            target="_blank"
+            rel="noreferer"
+          >
             Dang Minh Ngo
           </a>
         </p>
