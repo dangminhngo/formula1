@@ -1,32 +1,32 @@
 version: '3.8'
 services:
   server:
-    container_name: server
+    container_name: f1-server
     build:
       context: .
       dockerfile: ./server/Dockerfile
     env_file:
-      - ./server/.env
+      - .env
     restart: always
     ports:
       - 8000:8000
     networks:
-      - formula1_network
+      - formula1
   client:
-    container_name: client
+    container_name: f1-client
     build:
       context: .
       dockerfile: ./client/Dockerfile
     env_file:
-      - ./client/.env
+      - .env
     restart: always
     ports:
-      - 3000:3000
+      - 4000:4000
     depends_on:
       - server
     networks:
-      - formula1_network
+      - formula1
 
 networks:
-  formula1_network:
+  formula1:
     driver: bridge

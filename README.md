@@ -79,13 +79,8 @@ pnpm i
 - Step 3: Set environment variables with `.env.development.local` files at `<root>/server` and `<root>/client`
 
 ```
-# <root>/server/.env.development.local
-DATABASE_URL="file:./database.db"
-CLIENT_ORIGIN="http://localhost:3000"
-```
-
-```
-# <root>/client/.env.development.local
+# <root>/.env
+CLIENT_ORIGIN="http://localhost:4000"
 VITE_API_SERVER_URL="http://localhost:8000"
 ```
 
@@ -107,17 +102,12 @@ cd formula1
 - Step 2: Set environment variables with `.env` files at `<root>/server` and `<root>/client`
 
 ```
-# <root>/server/.env
-DATABASE_URL="file:./database.db"
-CLIENT_ORIGIN="http://localhost:3000"
-```
-
-```
-# <root>/client/.env
+# <root>/.env
+CLIENT_ORIGIN="http://localhost:4000"
 VITE_API_SERVER_URL="http://localhost:8000"
 ```
 
-- Step 2: Build and run docker containers with Docker Compose. After the build process, the app will be running at `http://localhost:3000`
+- Step 3: Build and run docker containers with Docker Compose. After the build process, the app will be running at `http://localhost:3000`
 
 ```bash
 docker-compose up -d

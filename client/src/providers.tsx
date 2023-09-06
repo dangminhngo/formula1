@@ -7,12 +7,13 @@ import config from './lib/config'
 import { trpc } from './lib/trpc'
 
 export default function Providers({ children }: React.PropsWithChildren) {
+  console.log(config.API_SERVER_URL)
   const [queryClient] = useState(() => new QueryClient())
   const [trpcClient] = useState(() =>
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: config.API_SERVER_URL,
+          url: config.API_SERVER_URL ?? 'http://localhost:8000',
           // @link https://trpc.io/docs/client/cors
           fetch(url, options) {
             return fetch(url, {
