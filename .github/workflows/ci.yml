@@ -59,6 +59,6 @@ jobs:
             docker stop formula1-client
             docker rm formula1-client
             docker stop formula1-server
-            docker stop formula1-server
+            docker rm formula1-server
             docker run -d --env-file ~/env/formula1/.env -p 4000:4000 --name formula1-client --network formula1_network dangminhngo/formula1:client
             docker run -d --env-file ~/env/formula1/.env -p 8000:8000 --name formula1-server --network formula1_network dangminhngo/formula1:server
