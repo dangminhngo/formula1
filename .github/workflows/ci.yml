@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  pull_request:
+    branches: ['*']
+  push:
+    branches: ['main']
+  merge_group:
+
+jobs:
+  build-image-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Touch .env file
+        run: |
+          touch .env
+          echo VITE_API_SERVER_URL="${{ secrets.SERVER_URL }}" >> .env
+          echo CLIENT_ORIGIN="${{ secrets.CLIENT_URL }}" >> .env
+          cat .env
+
+      - name: Build the image
+        run: docker-compose build
+
+      - name: Login DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
+
+      - name: Push the image
+        run: |
+          docker push dangminhngo/formula1:client
+          docker push dangminhngo/formula1:server
+
+  deploy:
+    needs: build-image-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH connect, pull docker image and deploy it
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            mkdir -p ~/env/formula1
+            touch ~/env/formula1/.env
+            echo VITE_API_SERVER_URL="${{ secrets.SERVER_URL }}" >> ~/env/formula1/.env
+            echo CLIENT_ORIGIN="${{ secrets.CLIENT_URL }}" >> ~/env/formula1/.env
+            cat ~/env/formula1/.env
+            docker pull dangminhngo/formula1:client
+            docker pull dangminhngo/formula1:server
+            docker stop formula1-client
+            docker rm formula1-client
+            docker stop formula1-server
+            docker stop formula1-server
+            docker run -d --env-file ~/env/formula1/.env -p 4000:4000 --name formula1-client --network formula1_network dangminhngo/formula1:client
+            docker run -d --env-file ~/env/formula1/.env -p 8000:8000 --name formula1-server --network formula1_network dangminhngo/formula1:server

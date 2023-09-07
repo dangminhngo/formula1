@@ -1,7 +1,8 @@
 version: '3.8'
 services:
   server:
-    container_name: f1-server
+    container_name: formula1-server
+    image: dangminhngo/formula1:server
     build:
       context: .
       dockerfile: ./server/Dockerfile
@@ -13,7 +14,8 @@ services:
     networks:
       - formula1
   client:
-    container_name: f1-client
+    container_name: formula1-client
+    image: dangminhngo/formula1:client
     build:
       context: .
       dockerfile: ./client/Dockerfile
