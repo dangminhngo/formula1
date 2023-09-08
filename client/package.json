@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 4000",
-    "build": "tsc && vite build",
+    "dev": "pnpm with-env vite --port 4000",
+    "build": "pnpm with-env tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "typecheck": "tsc --noEmit",
-    "preview": "vite preview --port 4000"
+    "preview": "pnpm with-env vite preview --port 4000",
+    "with-env": "dotenv -e ../.env --"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.0.3",
