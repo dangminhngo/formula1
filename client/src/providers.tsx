@@ -18,7 +18,6 @@ export default function Providers({ children }: React.PropsWithChildren) {
           fetch(url, options) {
             return fetch(url, {
               ...options,
-              credentials: 'include',
             })
           },
         }),

@@ -2,7 +2,6 @@ import { createHTTPServer } from '@trpc/server/adapters/standalone'
 import cors from 'cors'
 
 import { createContext } from './context'
-import config from './lib/config'
 import {
   getAllDriverStandingsInAYear,
   getAllTeamStandingsInAYear,
@@ -45,10 +44,7 @@ const appRouter = router({
 export type AppRouter = typeof appRouter
 
 const server = createHTTPServer({
-  middleware: cors({
-    origin: [config.CLIENT_ORIGIN],
-    credentials: true,
-  }),
+  middleware: cors(),
   router: appRouter,
   createContext,
 })
