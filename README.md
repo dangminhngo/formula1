@@ -38,7 +38,7 @@ This app has been developed by [Dang Minh Ngo](https://dangminhngo.github.io). I
 
 - Crawling data from [formula1.com](https://formula1.com/en) race results (latest update 02 July 2023)
 - Allowing users to filter and search the informations about Formula One races, drivers and teams with data tables and graphics.
-- The app is living at: [http://8.222.192.185:3000](http://8.222.192.185:3000)
+- The app is living at: [https://formula1-client.vercel.app](https://formula1-client.vercel.app)
 
 ## Technologies/Libraries
 
@@ -80,7 +80,6 @@ pnpm i
 
 ```
 # <root>/.env
-CLIENT_ORIGIN="http://localhost:4000"
 VITE_API_SERVER_URL="http://localhost:8000"
 ```
 
@@ -103,7 +102,6 @@ cd formula1
 
 ```
 # <root>/.env
-CLIENT_ORIGIN="http://localhost:4000"
 VITE_API_SERVER_URL="http://localhost:8000"
 ```
 
