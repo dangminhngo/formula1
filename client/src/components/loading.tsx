@@ -95,7 +95,7 @@ export default function Loading({ isLoading = true, children }: LoadingProps) {
               r="33.8218"
               fill="#94A3B8"
               stroke="#1E293B"
-              stroke-width="1.04067"
+              strokeWidth="1.04067"
             />
             <circle
               cx="339.493"
@@ -103,7 +103,7 @@ export default function Loading({ isLoading = true, children }: LoadingProps) {
               r="24.4557"
               fill="#94A3B8"
               stroke="#1E293B"
-              stroke-width="1.04067"
+              strokeWidth="1.04067"
             />
             <path
               fillRule="evenodd"
